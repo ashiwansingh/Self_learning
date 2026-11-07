@@ -1,29 +1,20 @@
+
 Table: employees(name, department, salary)
 
-Task: Un sab employees ka name, department aur salary display karo jo aise departments mein kaam karte hain jahan kam-se-kam ek employee ki salary ₹50,000 se zyada hai.
+Task: Har department ke andar employees ko salary ke highest-to-lowest order mein number do. Har department ki numbering 1 se restart honi chahiye.
 
-Example: Agar IT department mein kisi ek employee ki salary ₹60,000 hai, toh IT ke saare employees output mein aane chahiye.
-
-
+Hint: PARTITION BY use karna hai.
 
 
 
 
-SELECT name , department , salary FROM employees WHERE department = (
-    SELECT salary
-    FROM employees
-    WHERE salary >50000
-);
-
-
-Correct One :-
+Solution: -  
 
 
 
-SELECT name, department, salary
-FROM employees
-WHERE department IN (
-    SELECT department
-    FROM employees
-    WHERE salary > 50000
-);
+SELECT name, department, salary,
+       ROW_NUMBER() OVER (
+           PARTITION BY department
+           ORDER BY salary DESC
+       ) AS rn
+FROM employees;

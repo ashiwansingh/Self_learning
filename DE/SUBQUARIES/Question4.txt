@@ -1,0 +1,22 @@
+Table: employees(name, department, salary)
+
+Har department mein employees ko salary ke highest-to-lowest order mein unique row number dena hai. Numbering har department mein 1 se restart honi chahiye.
+
+Output: name, department, salary, row_num.
+
+
+Solutions: - 
+
+SELECT name , department , salary , ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary) AS row_num
+FROM employees ;
+
+
+
+
+
+
+
+
+
+
+

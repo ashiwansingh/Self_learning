@@ -1,11 +1,14 @@
-Question: Un employees ka name aur salary nikaal jo company ki average salary se zyada kamaate hain.
+Table: employees(name, salary)
 
-Hint: MAX() ki jagah AVG() use karna hai, aur = ki jagah >.
-
-
+Task: Har employee ka name, salary aur salary ke according highest se lowest tak row number display kar.
 
 
-SELECT name ,salary FROM employees WHERE salary > (
-    SELECT AVG(salary)
-    FROM employees
-)
+
+
+Mine Solution:-
+
+
+
+SELECT name , salary , 
+ROWNUMBER() OVER(ORDER BY salary DESC ) 
+FROM employees;
