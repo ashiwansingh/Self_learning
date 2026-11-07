@@ -1,0 +1,43 @@
+Table: employees(name, salary)
+
+Salary categories ke according employees count kar:
+- Salary 50000 ya zyada → 'High'
+- Baaki → 'Low'
+Output mein salary_group aur total chahiye. Har category ki ek row honi chahiye.
+
+Hint: CASE category banayega, GROUP BY same categories ko group karega aur COUNT(*) employees count karega.
+
+
+
+
+Solution(Mine):-
+
+SELECT 
+    CASE 
+        WHEN salary >=50000 THEN 'High'
+        ELSE 'Low'
+    END AS salary_group
+    COUNT(*)
+    END
+    FROM employees
+    GROUP BY salary
+    CASE 
+        WHEN salary >=50000 THEN 'High'
+        ELSE 'Low'
+    END AS total
+    END
+
+
+Correct Solution: - 
+SELECT
+    CASE
+        WHEN salary >= 50000 THEN 'High'
+        ELSE 'Low'
+    END AS salary_group,
+    COUNT(*) AS total
+FROM employees
+GROUP BY
+    CASE
+        WHEN salary >= 50000 THEN 'High'
+        ELSE 'Low'
+    END;

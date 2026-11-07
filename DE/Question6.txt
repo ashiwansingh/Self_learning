@@ -1,0 +1,17 @@
+Question: - 
+Table: employees(name, department, salary)
+
+SQL query likho jo har department ke employees ko salary ke highest-to-lowest order mein rank kare. Same salary walon ko same rank mile aur ranks mein koi gap na ho.
+
+Output: name, department, salary, salary_rank.
+
+
+
+
+
+
+Solutions :- 
+
+SELECT name , department , salary , DENSE_RANK(salary) OVER (PARTITION BY department ORDER BY salary DESC) AS salary_rank
+
+

@@ -1,0 +1,20 @@
+Table: employees(name, department, salary)
+
+Task: SQL query likh jo har employee ka name, department, salary aur moving average show kare.
+
+Conditions:
+- Har department ki calculation alag honi chahiye.
+- Salary highest se lowest order mein ho.
+- Average mein current employee aur usse pehle ki 2 rows include honi chahiye.
+- Agar previous rows available nahi hain, toh jitni rows available hain unka average nikalo.
+
+
+
+Solution : - 
+
+SELECT name , department , salary , AVG(salary) OVER (PARTITION BY department ORDER BY salary ROW BETWEEN 2 PRECEDING AND CURRENT ROW) AS rn
+FROM employees
+
+
+
+

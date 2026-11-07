@@ -1,0 +1,20 @@
+Table: employees(name, department, salary)
+
+Task: SQL query likho jo un employees ka name, department aur salary display kare jinki salary apne department ki average salary se zyada hai.
+
+Example: IT department ke employee ki salary ko IT department ke average se compare karna hai, poori company ke average se nahi.
+
+
+SELECT name , department , salary FROM employees WHERE salary >(
+    SELECT department
+)
+
+
+
+
+
+
+
+
+
+

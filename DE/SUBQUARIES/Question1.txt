@@ -1,0 +1,11 @@
+Question: Un employees ka name aur salary nikaal jo company ki average salary se zyada kamaate hain.
+
+Hint: MAX() ki jagah AVG() use karna hai, aur = ki jagah >.
+
+
+
+
+SELECT name ,salary FROM employees WHERE salary > (
+    SELECT AVG(salary)
+    FROM employees
+)

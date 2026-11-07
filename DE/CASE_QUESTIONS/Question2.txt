@@ -1,0 +1,44 @@
+Table: employees(department, salary)
+
+Har department ki total salary calculate kar, phir total ke basis par category de:
+- Total salary 200000 ya zyada → 'High Expense'
+- Total salary 100000 ya zyada → 'Medium Expense'
+- Baaki → 'Low Expense'
+Output mein department, total_salary aur expense_category chahiye.
+
+Hint: SUM(salary) aur GROUP BY department use karna hai. Category individual employee ki salary par nahi, department ki total salary par depend karegi.
+
+
+
+
+Mine Soltion:- 
+
+SELECT 
+    CASE 
+        WHEN salary>=20000 >= 'High Expense'
+        WHEN salary>=10000 >= 'Medium Expense'
+        ELSE 'Low Expense'
+        END AS 'total_salary'
+        SUM(salary) AS 'expense_category'
+    END
+FROM employees
+GROUP BY
+    CASE 
+        WHEN salary>=20000 >= 'High Expense'
+        WHEN salary>=10000 >= 'Medium Expense'
+        ELSE 'Low Expense'
+    END
+
+
+Correct Answer: -
+
+SELECT
+    department,
+    SUM(salary) AS total_salary,
+    CASE
+        WHEN SUM(salary) >= 200000 THEN 'High Expense'
+        WHEN SUM(salary) >= 100000 THEN 'Medium Expense'
+        ELSE 'Low Expense'
+    END AS expense_category
+FROM employees
+GROUP BY department;

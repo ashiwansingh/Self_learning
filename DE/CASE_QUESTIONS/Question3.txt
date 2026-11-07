@@ -1,0 +1,24 @@
+employees(department, salary) table mein har department ki total salary nikaalni hai.
+
+Is baar sirf ye likh:
+- department
+- SUM(salary) ka alias total_salary
+Aur GROUP BY department use kar.
+
+
+
+
+
+
+
+
+
+SELECT department , SUM(salary) AS total_salary
+FROM employees
+GROUP BY department
+CASE 
+    WHEN SUM(salary)>=20000 >= 'High Expense'
+    WHEN SUM(salary)>=10000 >= 'Medium Expense'
+    ELSE 'Low Expense'
+    END AS 'total_salary'
+END

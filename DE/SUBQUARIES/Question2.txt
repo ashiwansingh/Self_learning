@@ -1,0 +1,29 @@
+Table: employees(name, department, salary)
+
+Task: Un sab employees ka name, department aur salary display karo jo aise departments mein kaam karte hain jahan kam-se-kam ek employee ki salary ₹50,000 se zyada hai.
+
+Example: Agar IT department mein kisi ek employee ki salary ₹60,000 hai, toh IT ke saare employees output mein aane chahiye.
+
+
+
+
+
+
+SELECT name , department , salary FROM employees WHERE department = (
+    SELECT salary
+    FROM employees
+    WHERE salary >50000
+);
+
+
+Correct One :-
+
+
+
+SELECT name, department, salary
+FROM employees
+WHERE department IN (
+    SELECT department
+    FROM employees
+    WHERE salary > 50000
+);

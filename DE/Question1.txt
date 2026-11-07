@@ -1,0 +1,14 @@
+Table: employees(name, salary)
+
+Task: Har employee ka name, salary aur salary ke according highest se lowest tak row number display kar.
+
+
+
+
+Mine Solution:-
+
+
+
+SELECT name , salary , 
+ROWNUMBER() OVER(ORDER BY salary DESC ) 
+FROM employees;
