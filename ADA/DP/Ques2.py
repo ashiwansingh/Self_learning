@@ -1,9 +1,13 @@
-def frog(n):
-    dp = [0,1]
+dp = {}
 
-    for i in range(2 , n+1):
-        dp.append(dp[i-1]+dp[i-2])
+def fib(n):
+    if n <= 1:
+        return n
+
+    if n in dp:
+        return dp[n]
+    dp[n] =fib(n-1) + fib(n-2)
+
     return dp[n]
 
-
-print(frog(5))
+print(fib(6))
